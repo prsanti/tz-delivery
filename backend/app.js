@@ -8,6 +8,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 const db = require('./db');
+const dbHelpers = require('./helpers/dbHelpers')(db);
 
 app.use(logger('dev'));
 app.use(express.json());
