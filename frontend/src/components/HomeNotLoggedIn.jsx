@@ -13,11 +13,11 @@ const HomeNotLoggedIn = () => {
   return (
     <div id="body">
       <Trail open={open} onClick={() => set((state) => !state)} >
-        <span id="app-name">Rebu</span>
+        <span id="app-name">TechZenik</span>
       </Trail>
       <Trail open={!open} onClick={() => set((state) => !state)} >
-        <span className="slogan">Designated</span>
-        <span className="slogan">Driving</span>
+        <span className="slogan">Delivery</span>
+        <span className="slogan">Tracking</span>
         <span className="slogan">Service</span>
       </Trail>
       <div className="button-group">
