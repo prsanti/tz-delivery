@@ -68,3 +68,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+1)
+Driver's location: 18 Finch Ave W, Toronto, ON J4Y 0K7
+User's location: 6034 Yonge St, North York, ON M2M 3W5
+Destination: 172 Fenn Avenue, North York, ON

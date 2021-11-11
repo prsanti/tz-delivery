@@ -1,0 +1,139 @@
+
+
+
+.cardRow {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.distanceFilter {
+  margin-top: 10px;
+}
+
+.request-container {
+  max-width: 850px;
+  padding: 0;
+
+  .start-address,
+  .end-address {
+    font-weight: 500;
+    color: #555;
+  }
+
+  .card-container {
+    display: flex;
+    align-items: center;
+  }
+
+  
+  .tripCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0, .25);
+    max-width: 800px;
+    height: 170px;
+    
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 5px 15px 5px rgba(67, 96, 175, 0.315);
+
+    }
+
+    .request-card {
+      padding-bottom: 0;
+    }
+
+
+    .trip-price {
+      font-weight: 600;
+      padding: 0;
+      height: 40px;
+      color: #333;
+
+    }
+
+    .btn-container {
+      margin: 0;
+      padding: 0;
+      height: 40px;
+      width: 60px;
+    }
+    .accept-btn {
+      font-weight: 600;
+      background-color:#FFF;
+      color:#1E90FF;
+      width: 100px;
+      height: 50px;
+
+      &:hover {
+        color:#FFF;
+        background-color: #1E90FF;
+        border: 2px solid#1E90FF;
+      }
+    }
+
+    .confirmed-badge {
+      font-size: 20px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .created-at {
+    font-size: 0.7em;
+    margin: 3em 1em 0.5em 1em;
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .request-container {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+
+    .tripCard {
+      width: 100vw;
+      border-radius: 0;
+      box-shadow: none;
+      height: 100px;
+    }
+  
+    .card-container {
+      font-size: 0.65em;
+      display: flex;
+      flex-wrap: wrap;
+
+      .start-address,
+      .end-address {
+        padding: 0;
+
+      }
+
+      .trip-price {
+        height: 15px;
+        width: 60px;
+      }
+
+      .accept-btn {
+        height: 40px;
+        width: 70px;
+        font-size: 1.2em;
+        padding: 0.2em;
+      }
+      
+      
+    }
+
+    .created-at {
+      margin-top: 0.6em;
+      font-size: 0.5em;
+    }
+
+  }
+  
+}

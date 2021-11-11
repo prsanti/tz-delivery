@@ -1,0 +1,55 @@
+#register {
+  height: 100vh;
+  display:inline-block;
+
+  .registerH1 {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-style: none none solid none;
+    border-width: 2px;
+  }
+
+  .usertype-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-row{
+      justify-content: flex-start;
+
+    }
+
+    span {
+      font-weight: 600;
+    }
+
+    .choose-usertype {
+      margin: 0 1em;
+    }
+  }
+
+  .outer-container {
+    margin: 1em;
+    padding: 2em;
+    background-color: #fff;
+    height: 70vh;
+    max-width: 700px;
+    min-width: 300px;
+    width: 90%;
+  }
+
+  .submit-btn {
+    margin: 2em 0;
+  }
+}
+
+.formRow {
+  margin-top: 15px;
+}
+
+.settingsH1{
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+  border-style: none none solid none;
+  border-width: 2px;
+}

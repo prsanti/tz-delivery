@@ -1,0 +1,240 @@
+$navbar-color: #1A1A1D;
+
+.nav {
+
+  background-color: $navbar-color;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+
+  .navbar {
+    background-color: $navbar-color;
+    height: 80px;
+    // display: flex;
+    // justify-content: flex-start;
+    // align-items: center;
+  }
+  
+  .menu-bars {
+    margin-left: 2rem;
+    font-size: 2rem;
+    background: none;
+    color: #fff;
+
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-bars:hover {
+    cursor: pointer;
+  }
+  
+  .nav-menu {
+    background-color: #f4f4f4;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+    transition: 350ms;
+  }
+  
+  .nav-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style: none;
+    height: 60px;
+  }
+  
+  .nav-text a {
+    text-decoration: none;
+    color: #181515;
+    font-size: 18px;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+  }
+  
+  .nav-text a:hover {
+    background-color: #BDD5EA;
+    cursor: pointer;
+  }
+  
+  .nav-menu-items {
+    width: 100%;
+  }
+  
+  .navbar-toggle {
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  span {
+    margin-left: 16px;
+  }
+
+  .app-name {
+    // border-color: red;
+    // border-style: dashed;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+    // flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    // margin-left: 450%;
+    // text-align: center;
+    // margin-top: 11%;
+    // margin: 50%;
+    // padding-left: 50%;
+  }
+  
+  .home-link {
+    text-decoration: none;
+  }
+
+}
+
+// $navbar-color: #1A1A1D;
+
+// .nav {
+//   background-color: $navbar-color;
+//   width: 100%;
+//   position: relative;
+//   z-index: 10;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   // justify-content: space-around;
+//   // justify-content: space-between;
+//   align-items: center;
+
+//   .navbar {
+//     background-color: $navbar-color;
+//     height: 80px;
+//     display: flex;
+//     // flex-direction: row;
+//     justify-content: flex-start;
+//     align-items: center;
+//     border: blue;
+//     border-style: dotted;
+//     width: auto;
+//   }
+  
+//   .menu-bars {
+//     margin-left: 2rem;
+//     font-size: 2rem;
+//     background: none;
+//     color: #fff;
+//     // color: black;
+//     position: relative;
+//     border: teal;
+//     border-style: groove;
+//   }
+
+//   .menu-bars:hover {
+//     cursor: pointer;
+//   }
+  
+//   .nav-menu {
+//     background-color: #f4f4f4;
+//     width: 250px;
+//     height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     position: fixed;
+//     top: 0;
+//     left: -100%;
+//     transition: 850ms;
+//   }
+  
+//   .nav-menu.active {
+//     left: 0;
+//     transition: 350ms;
+//   }
+  
+//   .nav-text {
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+//     padding: 8px 0px 8px 16px;
+//     list-style: none;
+//     height: 60px;
+//   }
+  
+//   .nav-text a {
+//     text-decoration: none;
+//     color: #181515;
+//     font-size: 18px;
+//     width: 95%;
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+//     padding: 0 16px;
+//     border-radius: 4px;
+//   }
+  
+//   .nav-text a:hover {
+//     background-color: #BDD5EA;
+//     cursor: pointer;
+//   }
+  
+//   .nav-menu-items {
+//     width: 100%;
+//   }
+  
+//   .navbar-toggle {
+//     color: blue;
+//     background-color: #f4f4f4;
+//     width: 100%;
+//     height: 80px;
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+//   }
+  
+//   span {
+//     margin-left: 16px;
+//   }
+
+//   .app-name {
+//     border-color: red;
+//     border-style: dashed;
+//     cursor: pointer;
+//     color: white;
+//     display: block;
+//     flex-direction: row;
+//     justify-content: center;
+//     // align-items: center;
+//     margin: auto;
+//     // text-align: center;
+//     // margin-top: 11%;
+//     // margin: 50%;
+//     // padding-left: 50%;
+//   }
+
+//   .home-link {
+//     text-decoration: none;
+//   }
+
+// }
+

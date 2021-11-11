@@ -1,0 +1,20 @@
+.statusContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  height: 200px;
+}
+
+.button {
+  height: 70px;
+  width: 160px;
+  margin: 25px;
+  padding: 13px !important;
+}
+
+.search:hover{
+  font-weight: bold;
+}
+
+

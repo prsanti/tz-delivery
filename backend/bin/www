@@ -5,14 +5,14 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('backend:server');
+var debug = require('debug')('backend-express:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
 /**
@@ -20,10 +20,102 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+const db = require("../db");
 
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+const socketio = require('socket.io');
+const io = socketio(server, {
+  cors: {
+    origin: true,
+    methods: ["GET", "POST", "PUT", "DELETE"]
+  },
+  transports: ["websocket", "polling"]
+});
+
+const users = [];
+
+// const addUser = ({ id, name, room }) => {
+//   // const existingUser = users.findIndex(user => user.room === room && user.name === name );
+
+//   // if (existingUser) {
+//   //   const user = users[existingUser];
+//   //   return { user }
+//   // };
+
+//   const user = { id, name, room }
+//   users.push(user);
+//   console.log("UserInfo: ", user)
+//   return { user };
+// }
+const removeUser = (id) => {
+  const index = users.findIndex(user => user.id === id);
+
+  if (index !== -1) {
+    return users.splice(index,1)[0];
+  }
+}
+
+const getUser = id => users.find(user => user.id === id); 
+
+
+io.on('connection', socket => {
+  console.log("We have a new connection!");
+  console.log(socket.id);
+
+
+  socket.on("join", ({ name, room, isUserDriver }) => {
+    //add user to the chat
+    const user = { id: socket.id, name, room, isUserDriver };
+    users.push(user);
+    
+    console.log("USERS: ", users)
+
+    // socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
+    // socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+
+    
+    socket.join(user.room);
+    
+  })
+  
+  socket.on('sendMessage', (message, callback)=> {
+    const user = getUser(socket.id)
+    console.log("USERS ARR: ", users)
+    console.log("SOCKETID: ", socket.id)
+    console.log("USERINFO EMITTING THE MESSAGE: ", user);
+    io.to(user.room).emit('message', { user: user.name, text: message});
+
+    callback()
+  })
+
+  socket.on('accept', ({ room }) => {
+    console.log("EMITTING EVENT TO NOTIFY THE CUSTOMER")
+      socket.broadcast.to(room).emit('message', { user: 'admin', text: `The request has been accepted`} )
+      console.log("EVENT EMITTED")
+  })
+
+  socket.on("disconnection", () => {
+    removeUser(socket.id)
+    console.log("User has left!");
+  })
+
+})
+
+// io.on('connection', (socket) => {
+//   console.log('we have a new connection!');
+
+//   socket.on('join', ({ customer_name }) => {
+//     console.log("customer name: ",customer_name);
+//     console.log("hello")
+//   })
+
+//   socket.on('disconnect', () => {
+//     console.log('User has left!')
+//   })
+// })
 
 server.listen(port);
 server.on('error', onError);
@@ -87,4 +179,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log(`Listening on Port ${port}`)
 }

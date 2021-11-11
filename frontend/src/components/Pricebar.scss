@@ -1,0 +1,53 @@
+.show{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.dropdown{
+  width: 30px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.dropdown:hover{
+  cursor: pointer;
+}
+
+.priceItem{
+  font-family: sans-serif;
+  width: 140px;
+  padding: 15px;
+  background-color: #B2BABB;
+  justify-content: center;
+  color: black;
+  font-size: 17px;
+  border-width: 2px;
+  border-color: white;
+  border-style: none solid none solid;
+}
+
+.priceItem:hover{
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+  border-color: black;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.selectedPrice {
+  margin-top: 10px;
+  width: 140px;
+  font-size: 17px;
+  padding: 15px;
+  background-color: rgb(26, 23, 23);
+  color: white;
+
+}
