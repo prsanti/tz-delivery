@@ -40,7 +40,7 @@ const center = {
 //temporary data for directions
 
 
-Geocode.setApiKey("AIzaSyBu2sLVR_WxnT1EJS83srtXQm-hA_2SNw8");
+Geocode.setApiKey(process.env.GOOGLEAPI);
 
 
 export default function MapDriver(props) {
@@ -66,7 +66,7 @@ export default function MapDriver(props) {
   console.log('places', places)
   
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBu2sLVR_WxnT1EJS83srtXQm-hA_2SNw8",
+    googleMapsApiKey: process.env.GOOGLEAPI,
     libraries,
   });
 
@@ -177,6 +177,7 @@ export default function MapDriver(props) {
             <Button key = "WALKING" variant = {travelMode === "WALKING" ? "dark" : "secondary"} onClick = {() => { setTravelMode("WALKING")} }> Walk </Button>
             <Button key = "TRANSIT" variant= {travelMode === "TRANSIT" ? "dark" : "secondary"}onClick = {() => { setTravelMode("TRANSIT")} }> Transit </Button>
             <Button key = "BICYCLING" variant= {travelMode === "BICYCLING" ? "dark" : "secondary"}  onClick = {() => { setTravelMode("BICYCLING")} }> Bike </Button>
+            {/* <Button key = "DRIVING" variant= {travelMode === "DRIVING" ? "dark" : "secondary"}  onClick = {() => { setTravelMode("DRIVING")} }> Drive </Button> */}
           </ButtonGroup>
         </>
       </div>
