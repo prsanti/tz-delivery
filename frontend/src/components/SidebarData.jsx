@@ -22,12 +22,12 @@ const SidebarData = [
     icon: <AiIcons.AiFillSetting />
   },
   {
-    title: 'Ride',
+    title: 'Receive',
     path: '/',
     icon: <VscIcons.VscPerson />
   },
   {
-    title: 'Drive',
+    title: 'Deliver',
     path: '/',
     icon: <AiIcons.AiFillCar />
   },

@@ -38,10 +38,12 @@ const center = {
   lat: 43.6532,
   lng: -79.3832,
 };
+
+const key = process.env.REACT_APP_MAPS_KEY;
 //temporary data for directions
 
 
-Geocode.setApiKey(process.env.GOOGLEAPI);
+Geocode.setApiKey(key);
 
 export default function Map(props) {
 
@@ -61,7 +63,7 @@ export default function Map(props) {
   ]
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLEAPI,
+    googleMapsApiKey: key,
     libraries,
   });
 

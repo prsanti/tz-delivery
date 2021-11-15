@@ -37,10 +37,11 @@ const center = {
   lat: 43.6532,
   lng: -79.3832,
 };
+const key = process.env.REACT_APP_MAPS_KEY;
 //temporary data for directions
 
 
-Geocode.setApiKey(process.env.GOOGLEAPI);
+Geocode.setApiKey(key);
 
 
 export default function MapDriver(props) {
@@ -66,7 +67,7 @@ export default function MapDriver(props) {
   console.log('places', places)
   
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLEAPI,
+    googleMapsApiKey: key,
     libraries,
   });
 
@@ -172,12 +173,12 @@ export default function MapDriver(props) {
       <div id="panel"></div>
       <div className = "driverInfo">
         <> 
-          <span className = "driverSpan"> How will you get to the user? {transitIcon()} </span>
+          <span className = "driverSpan"> How will you deliver the package to the user? {transitIcon()} </span>
           <ButtonGroup size="lg" className="mb-2 transitOptions">
             <Button key = "WALKING" variant = {travelMode === "WALKING" ? "dark" : "secondary"} onClick = {() => { setTravelMode("WALKING")} }> Walk </Button>
             <Button key = "TRANSIT" variant= {travelMode === "TRANSIT" ? "dark" : "secondary"}onClick = {() => { setTravelMode("TRANSIT")} }> Transit </Button>
             <Button key = "BICYCLING" variant= {travelMode === "BICYCLING" ? "dark" : "secondary"}  onClick = {() => { setTravelMode("BICYCLING")} }> Bike </Button>
-            {/* <Button key = "DRIVING" variant= {travelMode === "DRIVING" ? "dark" : "secondary"}  onClick = {() => { setTravelMode("DRIVING")} }> Drive </Button> */}
+            <Button key = "DRIVING" variant= {travelMode === "DRIVING" ? "dark" : "secondary"}  onClick = {() => { setTravelMode("DRIVING")} }> Drive </Button>
           </ButtonGroup>
         </>
       </div>
