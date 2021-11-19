@@ -41,7 +41,7 @@ const Navbar = () => {
         </span>
         <span>
         <Link className= "home-link" to="/">
-          <h1 className="app-name">TZ Prototype</h1>
+          <h1 className="app-name">TechKnights</h1>
         </Link>
         </span>
       </div>
