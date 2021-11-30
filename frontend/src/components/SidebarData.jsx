@@ -22,16 +22,6 @@ const SidebarData = [
     icon: <AiIcons.AiFillSetting />
   },
   {
-    title: 'Receive',
-    path: '/',
-    icon: <VscIcons.VscPerson />
-  },
-  {
-    title: 'Deliver',
-    path: '/',
-    icon: <AiIcons.AiFillCar />
-  },
-  {
     title: 'Support',
     path: '/support',
     icon: <BsFillQuestionCircleFill />

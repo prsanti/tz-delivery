@@ -39,6 +39,8 @@ export default function Settings() {
     setUserType(e.target.value);
 
     if (userType === "driver") {
+      setCurrentUser({...currentUser, driver: false });
+    } else if (userType === "rider") {
       setCurrentUser({...currentUser, driver: true });
     }
   };
