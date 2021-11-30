@@ -12,7 +12,7 @@ const HomeNotLoggedIn = () => {
   return (
     <div id="body">
       <Trail open={open} onClick={() => set((state) => !state)} >
-        <span id="app-name">dyanomi </span>
+        <span id="app-name">Leveranze</span>
 
       </Trail>
       <Trail open={!open} onClick={() => set((state) => !state)} >
