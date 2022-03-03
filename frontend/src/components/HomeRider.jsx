@@ -26,6 +26,8 @@ export default function Home(props) {
   console.log("USER NAME:", props.user.full_name)
   return (
     <Fragment>
+      {/* Displays Google Maps */}
+      {/* Shows Start and End Location on the Map */}
       <div className = "map">
         <Map 
           travelTD = {travelTD} settravelTD = {settravelTD} 
@@ -35,6 +37,7 @@ export default function Home(props) {
           finishAddress = {finishAddress} setfinishAddress = {setfinishAddress}
         />
       </div>
+      {/* Chat component */}
       <div id="chat">
         { props.chatSelected && 
           <Chat 
@@ -44,6 +47,8 @@ export default function Home(props) {
           />
         }
       </div>
+        {/* User Summary Component */}
+        {/* Shows Price and Distance to the receiver */}
         <UserSummary 
           travelTD = {travelTD} settravelTD = {settravelTD}
           origin = {origin} setOrigin = {setOrigin} 

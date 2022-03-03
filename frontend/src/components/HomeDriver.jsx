@@ -10,18 +10,26 @@ import './Chat/Chat.css'
 
 export default function HomeDriver (props) {
 
+  // Delcaring Variables for the map and page
+  // travel moade variables
   const[travelMode, setTravelMode] = React.useState("WALKING");
 
+  // Request variables
   const [requests, setRequests] = useState([]); 
+
+  // Driver location variables
   const [driverlocation, setDriverlocation] = useState([]); 
 
+  // Travel Distance variables
   const [travelTD, settravelTD] = useState({
     time: "0",
     distance: "0",
   })
 
+  // Price
   const [price, setPrice] = useState("");
 
+  // Start and End location
   const [startAddress, setstartAddress] = useState("");
   const [finishAddress, setfinishAddress] = useState("");
   
@@ -31,16 +39,19 @@ export default function HomeDriver (props) {
     lng: null 
   });
 
+  // Pick up coords
   const [pickup, setPickup] = useState({
     lat: null, 
     lng: null
   });
   
+  // Destination coords
   const[destination, setDestination] = useState({
     lat: null, 
     lng: null
   });
   
+  // Gets data from the backend for the users and trips
   useEffect(() => {
     const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/trips/not-accepted"
     Axios.get(requestsAPI) //would be /api/trips/requested to get trips that have the accepted===false
@@ -53,6 +64,7 @@ export default function HomeDriver (props) {
   //     .then(res => setDriverlocation(res.data));
   // },[])
 
+  // Stores user data as cookies
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -66,6 +78,7 @@ export default function HomeDriver (props) {
     <div id="home-driver">
       <div>
         <div className = "map">
+          {/* Map component for the driver */}
           <MapDriver 
             driverlocation = {driverlocation}
             travelMode = {travelMode}
@@ -78,7 +91,9 @@ export default function HomeDriver (props) {
             finishAddress = {finishAddress} setfinishAddress = {setfinishAddress}
           />
         </div>
+        {/* Driver summary: price, distance */}
         <DriverSummary price = {price} travelMode = {travelMode} travelTD = {travelTD} settravelTD = {settravelTD}/>
+        {/* Chat component */}
         <div id="chat">
           { props.chatSelected && 
             <Chat
@@ -88,7 +103,9 @@ export default function HomeDriver (props) {
             />
           }
         </div>
+        {/* Request Cards */}
         <h2>Requests</h2>
+        {/* Returns a list of available trips as cards */}
         <RequestList 
           driverlocation = {driverlocation}
           requests = {requests} 

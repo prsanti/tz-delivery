@@ -10,6 +10,8 @@ export default function DriverSummary(props) {
 
   return (
     <article className = "driverSummary">
+      {/* Receiver Page */}
+      {/* Returns distance from start to end location and returns the price*/}
       <h3> Distance from current location to user: {travelTD.distance} ({travelTD.time}) </h3>
       <h4> Price : ${price} </h4> 
     </article>
