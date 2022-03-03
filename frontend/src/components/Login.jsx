@@ -21,7 +21,7 @@ export default function Login() {
     e.preventDefault();
     const user = { email, password }
 
-    return Axios.post("http://localhost:3001/users/login", user)
+    return Axios.post("https://techknights-prototype-backend.herokuapp.com/users/login", user)
       .then(res => {
         localStorage.setItem("token", res.data.token);
         setToken(localStorage.getItem("token"));

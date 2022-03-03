@@ -8,7 +8,7 @@ export default function History () {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/users/trips", { headers: { "x-access-token": token} })
+    Axios.get("https://techknights-prototype-backend.herokuapp.com/users/trips", { headers: { "x-access-token": token} })
       .then((res) => {
         console.log(res.data);
         setTrips(res.data);

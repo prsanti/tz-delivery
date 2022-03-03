@@ -42,13 +42,13 @@ export default function HomeDriver (props) {
   });
   
   useEffect(() => {
-    const requestsAPI = "http://localhost:3001/trips/not-accepted"
+    const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/trips/not-accepted"
     Axios.get(requestsAPI) //would be /api/trips/requested to get trips that have the accepted===false
       .then(res => setRequests(res.data));
   },[])
 
   // useEffect(() => {
-  //   const requestsAPI = "http://localhost:3001/users"
+  //   const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/users"
   //   Axios.get(requestsAPI) //would be /api/trips/requested to get trips that have the accepted===false
   //     .then(res => setDriverlocation(res.data));
   // },[])
@@ -56,7 +56,7 @@ export default function HomeDriver (props) {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const requestsAPI = "http://localhost:3001/users/data"
+    const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/users/data"
     Axios.get(requestsAPI, { headers: { "x-access-token": token} }) //would be /api/trips/requested to get trips that have the accepted===false
       .then(res => setDriverlocation(res.data));
   },[])

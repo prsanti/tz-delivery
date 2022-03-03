@@ -73,3 +73,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Driver's location: 18 Finch Ave W, Toronto, ON J4Y 0K7
 User's location: 6034 Yonge St, North York, ON M2M 3W5
 Destination: 172 Fenn Avenue, North York, ON
+
+### Heroku CLI
+
+# Open app in browser
+heroku open
+
+# Deploy
+git add .
+git commit -am ""
+git push heroku master
+
+# Reset Database
+
+# In Heroku Backend Website Settings
+Delete
+PGSSLMODE = no-verify
+field
+# On backend CLI
+heroku run reset
+
+# In Heroku Backend Website Settings
+add PGSSLMODE = no-verify

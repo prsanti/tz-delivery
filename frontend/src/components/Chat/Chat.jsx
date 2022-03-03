@@ -20,8 +20,8 @@ export default function Chat (props) {
   
   const isUserDriver = props.driver;
 
-  const driverTripAPI = `http://localhost:3001/trips/driver/${props.user.id}` 
-  const customerTripAPI = `http://localhost:3001/trips/rider/${props.user.id}`
+  const driverTripAPI = `https://techknights-prototype-backend.herokuapp.com/trips/driver/${props.user.id}` 
+  const customerTripAPI = `https://techknights-prototype-backend.herokuapp.com/trips/rider/${props.user.id}`
   
   //api endpoint to get the trip data that matches token === driver_id AND accepted === true AND ended_at === null (meaning the trip didn't end yet)
 
@@ -48,7 +48,7 @@ export default function Chat (props) {
 
   useEffect(() => {
     if (props.name && trip && room) {
-      socket = io("http://localhost:3001", {
+      socket = io("https://techknights-prototype-backend.herokuapp.com", {
         transports: ["websocket", "polling"]
       });
       socket.emit("join", { name: props.name , room , isUserDriver })

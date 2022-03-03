@@ -32,7 +32,7 @@ export default function Register(props) {
   function register (e) {
     e.preventDefault();
     
-    return Axios.post("http://localhost:3001/users", newUser)
+    return Axios.post("https://techknights-prototype-backend.herokuapp.com/users", newUser)
       .then(() => setRegistered(true))
       .catch(err => console.log(err))
   }

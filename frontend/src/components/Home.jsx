@@ -17,7 +17,7 @@ const Homee = () => {
   const [ isTripAccepted, setIsTripAccepted ] = useState(false)
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/users/data", { headers: { "x-access-token": token} })
+    Axios.get("https://techknights-prototype-backend.herokuapp.com/users/data", { headers: { "x-access-token": token} })
       .then((res) => {
         setUser(res.data);
       })

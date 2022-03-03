@@ -22,16 +22,19 @@
     "react-scroll-to-bottom": "^4.1.0",
     "react-spring": "^8.0.27",
     "sass": "^1.32.4",
+    "serve": "^13.0.2",
     "socket.io-client": "^3.1.0",
     "use-places-autocomplete": "^1.7.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start  --watch --watch-poll ",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+    },
   "eslintConfig": {
     "extends": [
       "react-app",

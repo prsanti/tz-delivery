@@ -89,7 +89,7 @@ export default function UserSummary(props) {
     if (loadedOnce && toggle) {
       setWaiting(true)
       console.log('newtrip', newTrip)
-      return Axios.post("http://localhost:3001/trips", newTrip)
+      return Axios.post("https://techknights-prototype-backend.herokuapp.com/trips", newTrip)
         .then(() => console.log("new trip request created"))
         .catch(err => console.log(err));
     }
@@ -103,13 +103,13 @@ export default function UserSummary(props) {
   const [completed, setCompleted] = useState(false)
 
   useEffect(() => {
-    const requestsAPI = "http://localhost:3001/users/data"
+    const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/users/data"
     Axios.get(requestsAPI, { headers: { "x-access-token": token} }) //would be /api/trips/requested to get trips that have the accepted===false
       .then(res => setCurrentDriver(res.data.id));
   })
 
   useEffect(() => {
-    const requestsAPI = "http://localhost:3001/users/active-trip"
+    const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/users/active-trip"
     Axios.get(requestsAPI, { headers: { "x-access-token": token} }) //would be /api/trips/requested to get trips that have the accepted===false
       .then(res => {
         if (res.data[res.data.length-1]) {
@@ -121,7 +121,7 @@ export default function UserSummary(props) {
   })
 
   useEffect(() => {
-    const requestsAPI = `http://localhost:3001/trips/`
+    const requestsAPI = `https://techknights-prototype-backend.herokuapp.com/trips/`
     Axios.get(requestsAPI) 
       .then(res => {
         setCurrentTripID(res.data.length)
@@ -129,7 +129,7 @@ export default function UserSummary(props) {
   })
 
   useEffect(() => {
-    const requestsAPI = `http://localhost:3001/trips/rider/${currentDriver}`
+    const requestsAPI = `https://techknights-prototype-backend.herokuapp.com/trips/rider/${currentDriver}`
     Axios.get(requestsAPI) 
       .then(res => {
         setDriverName(res.data.driver_name)
@@ -164,7 +164,7 @@ export default function UserSummary(props) {
       setWaiting(false)
       console.log('trip id to be deleted', currentTripID)
       // let deleteid = currentTripID - 1
-      return Axios.put(`http://localhost:3001/trips/${currentTripID}/cancel`)
+      return Axios.put(`https://techknights-prototype-backend.herokuapp.com/trips/${currentTripID}/cancel`)
       .then(() => {
         console.log("previous trip cancelled/delete")
         setloadedOnce(true)
@@ -181,7 +181,7 @@ export default function UserSummary(props) {
   
   const completeTrip = () => {
     setCompleted(true)
-    return Axios.put(`http://localhost:3001/trips/${currentTripID}/complete`)
+    return Axios.put(`https://techknights-prototype-backend.herokuapp.com/trips/${currentTripID}/complete`)
     .then(() => {
       console.log('Trip completed')
     })
@@ -192,7 +192,9 @@ export default function UserSummary(props) {
     <Fragment>
       <article className = "userSummary">
         <h3> Distance from current location to home: {travelTD.distance} ({travelTD.time}) </h3>
-        <h4> Estimated Price Range: ${range.lowest.price} - ${range.highest.price}</h4> 
+        <h4> Estimated Price Range: ${range.lowest.price} - ${range.highest.price}</h4>
+        <br></br>
+        <h5><i>Please select a price using the dropdown arrow</i></h5>
         <FaIcons.FaAngleDown onClick = {showPrice} className = "dropdown"/> 
         <div className = {priceMenu ? 'show' : 'hide' }>
           {listofPrice}

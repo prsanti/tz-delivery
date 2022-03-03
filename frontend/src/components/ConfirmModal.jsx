@@ -35,7 +35,7 @@ export default function ConfirmModal (props) {
   const [currentDriverId, setCurrentDriverId] = useState(null);
 
   useEffect(() => {
-    const requestsAPI = "http://localhost:3001/users/data"
+    const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/users/data"
     Axios.get(requestsAPI, { headers: { "x-access-token": token} }) //would be /api/trips/requested to get trips that have the accepted===false
       .then(res => {
         console.log(res.data.id);
@@ -63,7 +63,7 @@ export default function ConfirmModal (props) {
   // useEffect(() => {
   //   if (loaded) {
   //     console.log('newtrip', trip)
-  //     return Axios.put("http://localhost:3001/trips/1/accept", trip)
+  //     return Axios.put("https://techknights-prototype-backend.herokuapp.com/trips/1/accept", trip)
   //       .then(() => console.log("new trip request created"))
   //       .catch(err => console.log(err));
   //   }
@@ -88,13 +88,13 @@ export default function ConfirmModal (props) {
       ended_at: null
     })
     console.log('trip confirmed', trip)
-    return currentDriverId && Axios.put(`http://localhost:3001/trips/${id}/accept`, { driver_id : currentDriverId})
+    return currentDriverId && Axios.put(`https://techknights-prototype-backend.herokuapp.com/trips/${id}/accept`, { driver_id : currentDriverId})
     .then(() => console.log("new trip request created"))
     .catch(err => console.log(err));
   }, [currentDriverId])
 
   const notifyCustomer = (tripId) => {
-    socket = io("http://localhost:3001", {
+    socket = io("https://techknights-prototype-backend.herokuapp.com/", {
         transports: ["websocket", "polling"]
       });
 

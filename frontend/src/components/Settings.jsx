@@ -15,7 +15,7 @@ export default function Settings() {
   const [ userType, setUserType ] = useState("rider");
 
   useEffect(() => {
-    const requestsAPI = "http://localhost:3001/users/data"
+    const requestsAPI = "https://techknights-prototype-backend.herokuapp.com/users/data"
     Axios.get(requestsAPI, { headers: { "x-access-token": token} })
       .then(res => setCurrentUser(res.data));
   }, {});
@@ -23,7 +23,7 @@ export default function Settings() {
   const updateUser = (e) => {
     e.preventDefault();
 
-    return Axios.put("http://localhost:3001/users/data", currentUser, { headers: { "x-access-token": token} })
+    return Axios.put("https://techknights-prototype-backend.herokuapp.com/users/data", currentUser, { headers: { "x-access-token": token} })
       .then(() => console.log("updated"))
       .catch(err => console.log(err))
   };
@@ -58,7 +58,7 @@ export default function Settings() {
             <Form.Row as={Col}>
               <Form.Check
                 type="radio"
-                label="Rider"
+                label="Receive"
                 name="formHorizontalRadios"
                 value="rider"
                 id="formHorizontalRadios1"
@@ -68,7 +68,7 @@ export default function Settings() {
               />
               <Form.Check
                 type="radio"
-                label="Driver"
+                label="Drive"
                 name="formHorizontalRadios"
                 value="driver"
                 id="formHorizontalRadios2"
